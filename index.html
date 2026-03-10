@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>2026 UI/UX Design Trends – Promotional Banner</title>
+  <title>SHADOW VEIL • CLASSIFIED OPS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
   <style>
     * {
       margin: 0;
@@ -12,310 +16,285 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      height: 100vh;
-      background: linear-gradient(135deg, #4b0082, #2a0a5e, #1a0033);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
+      background: #0a0a0e;
+      color: #e0e0ff;
+      font-family: 'Roboto Mono', monospace;
+      overflow-x: hidden;
+      min-height: 100vh;
+      background-image: 
+        linear-gradient(rgba(10,10,14,0.92), rgba(10,10,14,0.92)),
+        url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=2000'); /* dark matrix-ish bg - change if you want */
+      background-size: cover;
+      background-attachment: fixed;
     }
 
-    .banner {
-      position: relative;
-      width: 100%;
+    .container {
       max-width: 1400px;
-      height: 80vh;
-      max-height: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header {
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,20,0.6);
+    }
+
+    nav {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      perspective: 1200px;
     }
 
-    .title {
-      position: absolute;
-      top: 8%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: clamp(3.5rem, 8vw, 7rem);
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.1rem;
       font-weight: 900;
-      letter-spacing: -2px;
-      background: linear-gradient(90deg, #c084fc, #a855f7, #d946ef);
+      background: linear-gradient(90deg, #00ffff, #ff00aa, #00ffff);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
-      z-index: 10;
-      white-space: nowrap;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px rgba(0,255,255,0.6);
     }
 
-    .subtitle {
-      position: absolute;
-      top: 22%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
-      opacity: 0.9;
-      letter-spacing: 1px;
-      text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
-      z-index: 10;
-    }
-
-    .phones {
+    .nav-links a {
+      color: #a0a0ff;
+      text-decoration: none;
+      margin-left: 2.5rem;
+      font-size: 1.1rem;
+      transition: all 0.3s;
       position: relative;
-      display: flex;
-      gap: 120px;
-      transform-style: preserve-3d;
-      transform: rotateX(8deg) rotateY(0deg);
     }
 
-    .phone {
-      position: relative;
-      width: 380px;
-      height: 760px;
-      background: linear-gradient(145deg, #111, #1a1a2e);
-      border-radius: 60px;
-      padding: 14px;
-      box-shadow: 
-        0 60px 120px rgba(0,0,0,0.7),
-        inset 0 0 40px rgba(168,85,247,0.15),
-        0 0 80px rgba(168,85,247,0.25);
-      border: 2px solid rgba(168,85,247,0.3);
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
+    .nav-links a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 12px #00ffff;
     }
 
-    .phone:hover {
-      transform: translateY(-30px) rotateY(10deg) scale(1.05);
-    }
-
-    .phone.left  { transform: rotateY(-18deg) rotateX(5deg); }
-    .phone.right { transform: rotateY(18deg) rotateX(5deg); }
-
-    .screen {
-      width: 100%;
-      height: 100%;
-      background: #0f0f1a;
-      border-radius: 46px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
-    }
-
-    /* Glowing accents around phones */
-    .phone::before {
+    .nav-links a::after {
       content: '';
       position: absolute;
-      inset: -20px;
-      background: radial-gradient(circle at 50% 50%, rgba(168,85,247,0.4), transparent 60%);
-      border-radius: 80px;
-      z-index: -1;
-      filter: blur(40px);
-      opacity: 0.7;
+      width: 0;
+      height: 2px;
+      bottom: -6px;
+      left: 0;
+      background: #00ffff;
+      transition: width 0.4s;
     }
 
-    /* Left phone - Login screen */
-    .login {
-      padding: 40px 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 28px;
-      height: 100%;
-    }
-
-    .avatar {
-      width: 110px;
-      height: 110px;
-      background: linear-gradient(145deg, #7e22ce, #a855f7);
-      border-radius: 50%;
-      margin-bottom: 10px;
-      box-shadow: 0 0 30px rgba(168,85,247,0.5);
-    }
-
-    .input {
+    .nav-links a:hover::after {
       width: 100%;
-      padding: 18px 20px;
-      border: none;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      color: white;
-      font-size: 1.1rem;
-      box-shadow: 
-        inset 4px 4px 10px rgba(0,0,0,0.4),
-        inset -4px -4px 10px rgba(255,255,255,0.05);
-      transition: all 0.3s;
     }
 
-    .input:focus {
-      outline: none;
-      box-shadow: 
-        0 0 0 3px rgba(168,85,247,0.6),
-        inset 4px 4px 10px rgba(0,0,0,0.4);
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 4rem 0;
     }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-text {
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4.8rem;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #ff00aa, #00ffff, #ff00aa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 40px rgba(255,0,170,0.5);
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      color: #00ffff;
+      margin-bottom: 2rem;
+      letter-spacing: 6px;
+    }
+
+    .status-bar {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid #00ffff33;
+      padding: 1.2rem;
+      border-radius: 8px;
+      max-width: 420px;
+      margin: 2rem 0;
+      font-size: 1.1rem;
+    }
+
+    .status-item {
+      margin: 0.8rem 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .status-label { color: #88aaff; }
+    .status-value { color: #ff88cc; font-weight: bold; }
 
     .btn {
-      width: 100%;
-      padding: 18px;
-      border: none;
-      border-radius: 16px;
-      background: linear-gradient(90deg, #a855f7, #d946ef);
-      color: white;
-      font-size: 1.2rem;
-      font-weight: bold;
+      display: inline-block;
+      background: transparent;
+      border: 2px solid #00ffff;
+      color: #00ffff;
+      padding: 1rem 2.5rem;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
       cursor: pointer;
-      box-shadow: 0 10px 30px rgba(168,85,247,0.5);
-      transition: all 0.3s;
+      transition: all 0.4s;
+      margin-top: 1.5rem;
+      font-family: 'Orbitron', sans-serif;
     }
 
     .btn:hover {
+      background: #00ffff22;
+      box-shadow: 0 0 30px #00ffff88;
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(168,85,247,0.6);
     }
 
-    .signup {
-      color: #c084fc;
-      font-size: 1rem;
-      text-decoration: underline;
-      cursor: pointer;
+    .hero-image {
+      position: relative;
+      z-index: 1;
     }
 
-    /* Right phone - E-commerce */
-    .product {
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      height: 100%;
-    }
-
-    .prod-img {
+    .hero-image img {
       width: 100%;
-      height: 280px;
-      background: linear-gradient(145deg, #6b21a8, #9333ea);
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-radius: 12px;
+      box-shadow: 0 0 60px rgba(0,255,255,0.4),
+                  inset 0 0 40px rgba(255,0,170,0.2);
+      border: 1px solid #00ffff44;
+      transition: all 0.6s;
     }
 
-    .prod-title {
-      font-size: 2.1rem;
-      font-weight: 800;
+    .hero-image:hover img {
+      transform: scale(1.04);
+      filter: brightness(1.1) contrast(1.15);
     }
 
-    .price {
-      font-size: 2.8rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, #c084fc, #ec4899);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .glitch {
+      position: relative;
     }
 
-    .rating {
-      font-size: 1.4rem;
-      color: #fbbf24;
-    }
-
-    .buy-btn {
-      padding: 18px;
-      background: linear-gradient(90deg, #a855f7, #d946ef);
-      color: white;
-      border: none;
-      border-radius: 16px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 12px 32px rgba(168,85,247,0.5);
-      margin-top: auto;
-    }
-
-    /* Floating UI elements */
-    .float {
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
       position: absolute;
-      background: rgba(168,85,247,0.18);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      border: 1px solid rgba(168,85,247,0.3);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-      color: #e9d5ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      pointer-events: none;
-      animation: float 7s infinite ease-in-out;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
     }
 
-    @keyframes float {
-      0%,100% { transform: translateY(0) rotate(0deg); }
-      50%     { transform: translateY(-30px) rotate(4deg); }
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 #ff00aa;
+      animation: glitch-1 3s infinite linear alternate-reverse;
     }
 
-    .float:nth-child(1) { width: 180px; height: 50px; top: 15%; left: 8%; animation-delay: 0s; }
-    .float:nth-child(2) { width: 70px;  height: 70px; top: 28%; right: 12%; animation-delay: 1.2s; border-radius: 50%; }
-    .float:nth-child(3) { width: 60px;  height: 60px; bottom: 22%; left: 18%; animation-delay: 2.4s; }
-    .float:nth-child(4) { width: 140px; height: 48px; bottom: 15%; right: 10%; animation-delay: 3.6s; }
-    .float:nth-child(5) { width: 90px;  height: 90px; top: 40%; left: 50%; transform: translate(-50%, -50%); animation-delay: 4.8s; border-radius: 50%; }
-    .float:nth-child(6) { width: 110px; height: 50px; bottom: 35%; left: 25%; animation-delay: 6s; }
+    .glitch::after {
+      left: -2px;
+      text-shadow: 2px 0 #00ffff;
+      animation: glitch-2 2.5s infinite linear alternate-reverse;
+    }
 
-    .glow-line {
-      position: absolute;
-      width: 2px;
-      height: 180px;
-      background: linear-gradient(to bottom, transparent, #a855f7, transparent);
-      opacity: 0.4;
-      filter: blur(2px);
-      transform-origin: top;
+    @keyframes glitch-1 {
+      0% { clip: rect(0, 9999px, 0, 0); transform: skew(0.5deg); }
+      5% { clip: rect(20px, 9999px, 80px, 0); transform: skew(1deg); }
+      10% { clip: rect(50px, 9999px, 120px, 0); }
+      /* ... more random keyframes can be added for better glitch */
+      100% { clip: rect(0, 9999px, 0, 0); transform: skew(0deg); }
+    }
+
+    @keyframes glitch-2 {
+      0% { clip: rect(0, 9999px, 0, 0); transform: skew(-0.5deg); }
+      5% { clip: rect(30px, 9999px, 90px, 0); }
+      /* add more for realism */
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: #666688;
+      font-size: 0.9rem;
+      border-top: 1px solid #00ffff11;
+    }
+
+    @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero h1 { font-size: 3.5rem; }
+      .hero-image { margin-top: 3rem; }
     }
   </style>
 </head>
 <body>
-  <div class="banner">
-    <h1 class="title">2026 UI/UX Trends</h1>
-    <p class="subtitle">Bold • Vibrant • Futuristic • Playful</p>
 
-    <div class="phones">
-      <!-- Left Phone: Login -->
-      <div class="phone left">
-        <div class="screen">
-          <div class="login">
-            <div class="avatar"></div>
-            <input class="input" placeholder="Username or Email" />
-            <input class="input" type="password" placeholder="Password" />
-            <button class="btn">Log In</button>
-            <button class="btn" style="background: transparent; border: 2px solid #a855f7; margin-top: 8px;">Sign Up</button>
-            <p class="signup">Forgot password?</p>
-          </div>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">SHADOW VEIL</div>
+        <div class="nav-links">
+          <a href="#">HOME</a>
+          <a href="#">AGENTS</a>
+          <a href="#">MISSIONS</a>
+          <a href="#">CONTACT</a>
         </div>
-      </div>
+      </nav>
+    </div>
+  </header>
 
-      <!-- Right Phone: E-commerce -->
-      <div class="phone right">
-        <div class="screen">
-          <div class="product">
-            <div class="prod-img"></div>
-            <h2 class="prod-title">Your Product</h2>
-            <div class="price">$999</div>
-            <div class="rating">★★★★☆ 4.0</div>
-            <button class="buy-btn">Buy Now</button>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        
+        <div class="hero-text">
+          <h1 class="glitch" data-text="PROJECT: SHADOW VEIL">PROJECT: SHADOW VEIL</h1>
+          <h2>CLASSIFIED OPERATIONS</h2>
+          
+          <div class="status-bar">
+            <div class="status-item"><span class="status-label">AGENT STATUS:</span> <span class="status-value">ACTIVE</span></div>
+            <div class="status-item"><span class="status-label">THREAT LEVEL:</span> <span class="status-value">HIGH</span></div>
+            <div class="status-item"><span class="status-label">LOCATION:</span> <span class="status-value">SECURE</span></div>
+            <div class="status-item"><span class="status-label">ENCRYPTION:</span> <span class="status-value">AES-512</span></div>
           </div>
+
+          <button class="btn">INITIATE PROTOCOL →</button>
         </div>
+
+        <div class="hero-image">
+          <!-- Yahan tum apni original image daal do (upload karke link ya local file) -->
+          <img src="https://files.catbox.moe/your-image-here.jpg" alt="Shadow Veil Agents">
+          <!-- Agar original image upload karna chahte ho toh catbox.moe / imgur pe daal ke link yahan replace kar dena -->
+        </div>
+
       </div>
     </div>
+  </section>
 
-    <!-- Floating playful UI elements -->
-    <div class="float">Search...</div>
-    <div class="float">🔔</div>
-    <div class="float">⚙️</div>
-    <div class="float">Home</div>
-    <div class="float">Profile</div>
-    <div class="float">Now Playing</div>
+  <footer>
+    <p>© 2026 SHADOW OPS | ENCRYPTED CONNECTION | v2.1</p>
+  </footer>
 
-    <!-- Some glowing connection lines (decorative) -->
-    <div class="glow-line" style="top:40%; left:30%; transform:rotate(35deg);"></div>
-    <div class="glow-line" style="top:55%; left:60%; transform:rotate(-25deg); height:220px;"></div>
-  </div>
 </body>
 </html>
